@@ -1,8 +1,9 @@
 Feature: Negative scenario for login and password forms
 
   Scenario: Incorect authorization
-    Given Open homepage
-    When User enters navigate login and password in form
+    Given user goes to the login page
+      When Check display login block
+      When User enters invalid login and password in form
     And Push batton Sign in
 Then There is 1 error Authentication failed
     Given Clear both forms
@@ -21,8 +22,8 @@ Then There is 1 error Authentication failed
     And Push button Sign in
     Given Clear both forms
     And  user enters valid uppercase values
-    And Push batton Sign in
-  
+    And Push batton Sign in2
+
 
 
 
