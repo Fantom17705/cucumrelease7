@@ -140,7 +140,6 @@ String actual = driver.findElement(By.className("alert alert-danger")).getText()
     public void Push_button_Sign_in2() {
         WebElement submitLog = driver.findElement(By.id("SubmitLogin"));
         submitLog.click();
-        submitLog.isDisplayed(HelloWorld);
         driver.quit();
     }
 }
