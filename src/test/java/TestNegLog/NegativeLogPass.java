@@ -23,7 +23,7 @@ public class NegativeLogPass {
     }
     @When ("^ Check display login block$")
     public void  Check_display_login_block() {
-WebElement FormLog = driver.findElement(By.xpath("//body[@id='authentication']/div[@id='page']/div[@class='columns-container']/div[@id='columns']/div[@class='row']/div[@id='center_column']/div[@class='row']/div[2]"));
+WebElement FormLog = driver.findElement(By.xpath("//form[@id='login_form']"));
 FormLog.submit();
     }
 @When ("^User enters invalid  login and password in form$")

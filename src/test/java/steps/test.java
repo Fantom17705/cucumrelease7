@@ -19,7 +19,7 @@ public class test {
     public void user_open_homepage () {
         System.setProperty("webdriver.chrome.driver", "C://drivers/chromedriver.exe");
         driver = new ChromeDriver();
-        driver.get("https://automationpractice.com/index.php");
+        driver.get("http://automationpractice.com/index.php");
         System.setProperty("webdriver.gecko.driver", "C:\\DRIVERS\\firefox\\geckodriver.exe");
         driver = new FirefoxDriver();
         driver.get("http://automationpractice.com/index.php");
