@@ -1,10 +1,10 @@
 # new feature
 # Tags: optional
 
-Feature: Test of form for registration new users
+Feature: Test of form for registration new users http://automationpractice.com
 
   Scenario: registration form positive
-    Given Open http://automationpractice.com
+    Given Open home page
     When Navigate to button Sign in
     Then Open page authentification
     And find registration form
