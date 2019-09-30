@@ -9,7 +9,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.junit.Assert.assertEquals;
 
@@ -20,6 +22,7 @@ public class RegistrationForm {
 System.setProperty("webdriver.chrome.driver", "C://drivers/chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("http://automationpractice.com/index.php");
+
     }
     @When("Navigate to button Sign in")
     public void navigate_to_button_Sign_in() {
@@ -94,15 +97,18 @@ System.setProperty("webdriver.chrome.driver", "C://drivers/chromedriver.exe");
     public void In_form_Date_of_Birth_navigate_to_combo_box_Months_select_value() {
         WebElement month = driver.findElement(By.xpath("//select[@id='months']"));
         month.click();
-        Select month = new Select(driver.findElement(By.xpath("//select[@id='months']"))); // Не уверен в правильности
-        month.selectByValue("July");
+        Select dropdown = new Select(driver.findElement(By.xpath("//select[@id='months']"))); // Не уверен в правильности
+        dropdown.selectByValue("July");
     }
     @And("^In form Date of Birth navigate to combo box Years select value$")
     public void In_form_Date_of_Birth_navigate_to_combo_box_Years_select_value() {
         WebElement years = driver.findElement(By.xpath("//select[@id='years']"));
         years.click();
-        Select years = new Select(driver.findElement(By.xpath("//select[@id='years']"))); // Не уверен в правильности
-        years.selectByValue("1989");
+        WebDriverWait ulWait = new WebDriverWait(driver, 30);
+        ulWait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//select[@id='years']")));
+        driver.findElement(By.linkText("1989")).click();
+       // Select = new Select(driver.findElement(By.xpath("//select[@id='years']"))).selectByValue("1989"); // Не уверен в правильности
+
     }
     @And("^Select check box Sign up for our newsletter$")
     public void Select_check_box_Sign_up_for_our_newsletter() {
@@ -135,11 +141,13 @@ System.setProperty("webdriver.chrome.driver", "C://drivers/chromedriver.exe");
     }
     @And("In form State in combo box select Utah")
     public void  In_form_State_in_combo_box_select_Utah() {
-
-        WebElement city = driver.findElement(By.xpath("//input[@id='city']"));
-        city.click();
-        Select city = new Select(driver.findElement(By.xpath("//input[@id='city']"))); // Не уверен в правильности
-        city.selectByValue("Utah");
+        WebDriverWait ulWait = new WebDriverWait(driver, 30);
+        ulWait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//input[@id='city']")));
+        driver.findElement(By.linkText("Utah")).click();
+        //WebElement city = driver.findElement(By.xpath("//input[@id='city']"));
+       // city.click();
+        //Select city = new Select(driver.findElement(By.xpath("//input[@id='city']"))); // Не уверен в правильности
+        //city.selectByValue("Utah");
     }
     @And("In form Mobile phone input value")
     public void In_form_Mobile_phone_input_value() {

@@ -1,4 +1,4 @@
-package TestNegLog;
+package steps.TestNegLog;
 
 
 import io.cucumber.java.en.And;
@@ -21,13 +21,13 @@ public class NegativeLogPass {
         driver = new ChromeDriver();
         driver.get("http://automationpractice.com/index.php?controller=authentication");
     }
-    @When ("^ Check display login block$")
+    @When ("^Check display login block$")
     public void  Check_display_login_block() {
 WebElement FormLog = driver.findElement(By.xpath("//form[@id='login_form']"));
 FormLog.submit();
     }
 @When ("^User enters invalid  login and password in form$")
-    public void User_enters_invalid_login_and_password_in_form () {
+    public void User_enters_invalid_login_and_password_in_form() {
     WebElement email = driver.findElement(By.id("email"));
     WebElement password = driver.findElement(By.id("passwd"));
     WebElement SubmitLog = driver.findElement(By.name("SubmitLogin"));
@@ -47,7 +47,7 @@ String actual = driver.findElement(By.className("alert alert-danger")).getText()
         Assert.assertEquals(exp_message, actual);
 
     }
-@Given("^Clear both forms$")
+@When("^Clear both forms$")
     public void Clear_both_form() {
     WebElement email = driver.findElement(By.id("email"));
     WebElement password = driver.findElement(By.id("passwd"));
@@ -65,6 +65,7 @@ String actual = driver.findElement(By.className("alert alert-danger")).getText()
     public void Push_button_Sign_in1() {
         driver.findElement(By.id("SubmitLogin")).click();
     }
+
     @Then ("^There is 1 error An email address required$")
     public void There_is_1_error_An_email_address_required() {
         String exp_message = "There is 1 error An email address required";
@@ -72,13 +73,6 @@ String actual = driver.findElement(By.className("alert alert-danger")).getText()
         Assert.assertEquals(exp_message,actual);
     }
 
-    @Given("^Clear both forms2$")
-    public void Clear_both_form2() {
-        WebElement email = driver.findElement(By.id("email"));
-        WebElement password = driver.findElement(By.id("passwd"));
-        email.clear();
-        password.clear();
-    }
 
 @And ("^User enters one letter character in both forms$")
     public void User_enters_one_letter_character_in_both_forms() {
@@ -91,6 +85,7 @@ String actual = driver.findElement(By.className("alert alert-danger")).getText()
     public void Push_button_Sign_in2() {
         driver.findElement(By.id("SubmitLogin")).click();
     }
+
     @Then ("^There is 1 error Invalid email address1$")
     public void There_is_1_error_Invalid_email_address1() {
         String exp_message = "There is 1 error Invalid email address";
@@ -98,8 +93,8 @@ String actual = driver.findElement(By.className("alert alert-danger")).getText()
         Assert.assertEquals(exp_message, actual);
     }
 
-    @Given("^Clear both forms3$")
-    public void Clear_both_form3() {
+    @Given("^Clear both forms2$")
+    public void Clear_both_form2() {
         WebElement email = driver.findElement(By.id("email"));
         WebElement password = driver.findElement(By.id("passwd"));
         email.clear();
@@ -116,14 +111,15 @@ String actual = driver.findElement(By.className("alert alert-danger")).getText()
     public void Push_button_Sign_in3() {
         driver.findElement(By.id("SubmitLogin")).click();
     }
+
     @Then ("^There is 1 error Invalid email address2$")
     public void There_is_1_error_Invalid_email_address2() {
         String exp_message = "There is 1 error Invalid email address";
         String actual = driver.findElement(By.className("alert alert-danger")).getText();
         Assert.assertEquals(exp_message, actual);
     }
-    @Given("^Clear both forms4$")
-    public void Clear_both_form4() {
+    @Given("^Clear both forms3$")
+    public void Clear_both_form3() {
         WebElement email = driver.findElement(By.id("email"));
         WebElement password = driver.findElement(By.id("passwd"));
         email.clear();
@@ -136,8 +132,8 @@ String actual = driver.findElement(By.className("alert alert-danger")).getText()
         email.sendKeys("BLOG.CUCUMBER@GMAIL.COM");
         password.sendKeys("CUCUMBER@BLOG");
     }
-    @And ("^Push button Sign in4$")
-    public void Push_button_Sign_in4() {
+    @And ("^Push button Sign in5$")
+    public void Push_button_Sign_in5() {
         WebElement submitLog = driver.findElement(By.id("SubmitLogin"));
         submitLog.click();
         driver.quit();
